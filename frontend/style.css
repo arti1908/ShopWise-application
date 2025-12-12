@@ -1,11 +1,10 @@
-/* GENERAL */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
 }
 
-/* HEADER */
 header {
     background: #2c3e50;
     color: white;
@@ -26,7 +25,6 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-/* SEARCH SECTION */
 #searchSection {
     padding: 20px;
     text-align: center;
@@ -54,7 +52,6 @@ header nav a:hover {
     background: #2980b9;
 }
 
-/* PRODUCTS LIST */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -95,7 +92,6 @@ button:hover {
     background: #1e8449;
 }
 
-/* MODAL STYLE */
 .modal {
     display: none;
     position: fixed;
@@ -120,7 +116,6 @@ button:hover {
     cursor: pointer;
     font-size: 25px;
 }
-/* LOGIN / REGISTER MODAL */
 #authModal {
     display: none;
     position: fixed;
@@ -186,7 +181,6 @@ button:hover {
     background: #eee;
 }
 
-/* Forms */
 #authModal form {
     display: flex;
     flex-direction: column;
@@ -213,7 +207,6 @@ button:hover {
     opacity: 0.9;
 }
 
-/* Messages */
 #loginMsg, #registerMsg {
     margin-top: 10px;
     font-weight: bold;
@@ -221,7 +214,6 @@ button:hover {
 #loginMsg { color: red; }
 #registerMsg { color: red; }
 
-/* Responsive */
 @media (max-width: 400px) {
     #authModal .modal-content { width: 90%; padding: 20px; }
     .tablink { font-size: 14px; padding: 8px; }
@@ -261,7 +253,6 @@ button:hover {
 #closeAuthAppModal { font-size:28px; cursor:pointer; }
 
 .auth-tabs { display:flex; margin-bottom: 15px; border-radius:20px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-/* Tabs */
 .auth-tab {
     flex: 1;
     padding: 10px;
@@ -323,7 +314,6 @@ button:hover {
     to {opacity:1; transform:translateY(0);}
 }
 
-/* Responsive */
 @media(max-width:400px){
     .auth-app-content { width:90%; padding:15px; }
 }
