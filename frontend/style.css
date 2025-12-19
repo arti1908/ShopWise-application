@@ -139,7 +139,6 @@ button:hover {
     position: relative;
 }
 
-/* Close Button */
 #closeAuthModal {
     position: absolute;
     top: 15px;
@@ -149,7 +148,6 @@ button:hover {
     cursor: pointer;
 }
 
-/* Tabs */
 .tabs {
     display: flex;
     justify-content: space-between;
@@ -273,8 +271,6 @@ button:hover {
     background: #4170a0;
 }
 
-
-
 .auth-tab-content form {
     display:flex;
     flex-direction:column;
@@ -301,7 +297,6 @@ button:hover {
     opacity:0.9;
     transform: translateY(-2px);
 }
-
 
 #loginMsgApp, #registerMsgApp {
     margin-top:10px;
