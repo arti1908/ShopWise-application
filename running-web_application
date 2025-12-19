@@ -1,0 +1,4 @@
+/*
+npm install    # Install dependencies (always first)
+npm run dev    # Start development server
+*/
