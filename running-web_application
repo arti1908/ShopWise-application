@@ -1,4 +1,5 @@
 /*
-npm install    # Install dependencies (always first)
+Next.js Web Application Setup Instructions
+npm install    # Install dependencies
 npm run dev    # Start development server
 */

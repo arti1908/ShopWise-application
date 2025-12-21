@@ -1,97 +1,40 @@
-[00:00:00.682] Server  LOG      ✓ Ready in 471ms
-[00:00:08.684] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.809] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:08.809] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:08.809] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766186904336}
-[00:00:09.116] Browser WARN    Image with src "http://localhost:3000/iphone-14.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:09.116] Browser WARN    Image with src "http://localhost:3000/samsung-galaxy-s23.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:09.116] Browser WARN    Image with src "http://localhost:3000/macbook-air-m2.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:09.116] Browser WARN    Image with src "http://localhost:3000/wireless-headphones.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:09.117] Browser WARN    Image with src "http://localhost:3000/ipad-air.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:09.117] Browser WARN    Image with src "http://localhost:3000/dell-laptop.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.280] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/iphone-14.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/samsung-galaxy-s23.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/macbook-air-m2.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/wireless-headphones.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/ipad-air.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser WARN    Image with src "http://localhost:3000/dell-laptop.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[00:00:22.410] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:22.410] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:22.410] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766186917938}
-[00:01:49.249] Server  LOG      ✓ Compiled in 474ms
-[00:01:57.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:57.588] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:57.588] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:01:57.589] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187013113}
-[00:01:57.929] Browser WARN    Image with src "/macbook-air-m2.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:00.717] Server  LOG      ✓ Ready in 517ms
+[00:00:11.621] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.738] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:11.738] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:11.738] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766332905582}
+[00:00:12.110] Browser WARN    Image with src "/iphone-14.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:04:09.789] Server  LOG      ✓ Compiled in 80ms
-[00:04:14.685] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:19.833] Server  LOG      ✓ Compiled in 77ms
-[00:04:20.041] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:20.041] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:25.550] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:04:25.551] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:04:25.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:25.880] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:25.880] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:25.880] Browser WARN    Image with src "/iphone-14.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:47.152] Browser LOG     [v0] Added to cart: Sony WH-1000XM5
+[00:00:50.217] Browser LOG     [v0] Added to cart: Sony WH-1000XM5
+[00:00:50.898] Browser LOG     [v0] Added to cart: Sony WH-1000XM5
+[00:00:51.099] Browser LOG     [v0] Added to cart: Sony WH-1000XM5
+[00:00:53.162] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cart color: rgb(120, 120, 120) color: inherit {"dp":"/cart","o":"http://localhost:3000/cart","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766332947003}
+[00:01:47.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333000863}
+[00:02:01.032] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/wishlist color: rgb(120, 120, 120) color: inherit {"dp":"/wishlist","o":"http://localhost:3000/wishlist","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333014874}
+[00:02:05.417] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333019260}
+[00:02:06.954] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cart color: rgb(120, 120, 120) color: inherit {"dp":"/cart","o":"http://localhost:3000/cart","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333020796}
+[00:02:09.681] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333023524}
+[00:02:42.246] Browser LOG     [v0] Searching for: iphone
+[00:02:42.816] Browser LOG     [v0] Searching for: iphone
+[00:02:43.065] Browser LOG     [v0] Searching for: iphone
+[00:02:43.282] Browser LOG     [v0] Searching for: iphone
+[00:02:43.532] Browser LOG     [v0] Searching for: iphone
+[00:02:49.798] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:49.909] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:49.909] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/help","route":"/help"}
+[00:02:49.909] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/help color: rgb(120, 120, 120) color: inherit {"dp":"/help","o":"http://localhost:3000/help","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333063752}
+[00:02:52.251] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:52.358] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:52.359] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:52.359] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333066201}
+[00:02:52.676] Browser WARN    Image with src "/iphone-14.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:04:25.880] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:04:25.880] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:04:25.880] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187161401}
-[00:04:37.787] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:04:37.787] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:04:37.992] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:38.114] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:38.114] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:38.114] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:04:38.114] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:04:38.114] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187173635}
-[00:04:38.411] Browser WARN    Image with src "/iphone-14.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:04:54.684] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:54.684] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:04:54.684] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:06.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:06.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:06.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:06.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:15.053] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:15.053] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:15.053] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:15.053] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:15.209] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:15.328] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:15.328] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:15.328] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:15.328] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:15.328] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:15.328] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:05:15.328] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187210847}
-[00:05:15.611] Browser WARN    Image with src "/iphone-14.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:05:43.683] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:43.683] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:43.683] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:45.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:45.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:45.689] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:50.690] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:50.690] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:50.693] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:50.693] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:50.718] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:50.718] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:54.597] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:54.597] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:54.616] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:54.616] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
-[00:05:54.683] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:54.683] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:05:58.685] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
-[00:06:16.183] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/wishlist color: rgb(120, 120, 120) color: inherit {"dp":"/wishlist","o":"http://localhost:3000/wishlist","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187271699}
-[00:06:20.631] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187276148}
-[00:06:39.924] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187295440}
-[00:06:44.791] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766187300309}
+[00:02:55.297] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:55.406] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:55.406] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/about","route":"/about"}
+[00:02:55.406] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/about color: rgb(120, 120, 120) color: inherit {"dp":"/about","o":"http://localhost:3000/about","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333069249}
+[00:02:57.227] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:57.345] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:57.345] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:57.345] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766333071188}
