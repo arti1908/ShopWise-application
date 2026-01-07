@@ -440,7 +440,7 @@ function CartPage() {
         columnNumber: 5
     }, this);
 }
-_s(CartPage, "nVo+PSN5CLwx52U4u/ZS7nmiDqo=");
+_s(CartPage, "dB2kgjXwa8zXY74RRYI4+KkOLmI=");
 _c = CartPage;
 var _c;
 __turbopack_context__.k.register(_c, "CartPage");

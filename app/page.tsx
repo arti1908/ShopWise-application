@@ -4,138 +4,177 @@ import { ProductGrid } from "@/components/product-grid"
 import { ShoppingCart, Heart, MapPin } from "lucide-react"
 
 export default function HomePage() {
-  return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b bg-card sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">S</span>
-              </div>
-              <h1 className="text-2xl font-bold text-foreground">ShopWise</h1>
-            </Link>
+    const categories = [
+        { name: "Groceries", emoji: "🛒", desc: "Supermarkets & food stores", link: "/groceries" },
+        { name: "Bars", emoji: "🍸", desc: "Eat & drink near you", link: "/bars" },
+        { name: "Restaurants", emoji: "🍽", desc: "Clothing & local shops", link: "/shops" },
+    ]
 
-            <nav className="flex items-center gap-6">
-              <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">
-                Home
-              </Link>
-              <Link
-                href="/wishlist"
-                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-              >
-                <Heart className="w-5 h-5" />
-                <span className="hidden sm:inline">Wishlist</span>
-              </Link>
-              <Link
-                href="/cart"
-                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-              >
-                <ShoppingCart className="w-5 h-5" />
-                <span className="hidden sm:inline">Cart</span>
-              </Link>
-              <Link
-                href="/login"
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
-              >
-                Login
-              </Link>
-            </nav>
-          </div>
+    return (
+        <div className="min-h-screen bg-background">
+            {/* HEADER */}
+            <header className="border-b bg-card sticky top-0 z-50">
+                <div className="container mx-auto px-4 py-4">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="flex items-center gap-2">
+                            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                                <span className="text-primary-foreground font-bold text-lg">S</span>
+                            </div>
+                            <h1 className="text-2xl font-bold text-foreground">ShopWise</h1>
+                        </Link>
+
+                        <nav className="flex items-center gap-6">
+                            <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">
+                                Home
+                            </Link>
+                            <Link
+                                href="/wishlist"
+                                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                            >
+                                <Heart className="w-5 h-5" />
+                                <span className="hidden sm:inline">Wishlist</span>
+                            </Link>
+                            <Link
+                                href="/cart"
+                                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                            >
+                                <ShoppingCart className="w-5 h-5" />
+                                <span className="hidden sm:inline">Cart</span>
+                            </Link>
+                            <Link
+                                href="/login"
+                                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                            >
+                                Login
+                            </Link>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            {/* MAIN CONTENT */}
+            <main>
+                {/* SEARCH SECTION */}
+                <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 py-16 md:py-24">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-3xl mx-auto text-center space-y-6">
+                            <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
+                                Find the Best Prices Instantly
+                            </h2>
+                            <p className="text-lg text-muted-foreground text-balance">
+                                Compare prices from local Albanian markets and save money on every purchase
+                            </p>
+                            <SearchBar />
+
+                            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                                <MapPin className="w-4 h-4" />
+                                <span>Showing results near Tirana, Albania</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-16 bg-background">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
+                            Shop by Category
+                        </h2>
+
+                        <div className="flex flex-wrap justify-center gap-6">
+                            {[
+                                { name: "Groceries", emoji: "🛒", desc: "Supermarkets & food stores", link: "/groceries", bg: "from-green-200 to-green-400" },
+                                { name: "Bars", emoji: "🍹", desc: "Drink & hang out near you", link: "/bars", bg: "from-pink-200 to-pink-400" },
+                                { name: "Restaurants", emoji: "🍴", desc: "Dine at the best places", link: "/restaurants", bg: "from-yellow-200 to-yellow-400" },
+                            ].map((cat) => (
+                                <Link key={cat.name} href={cat.link} className="w-full sm:w-64 md:w-72 lg:w-80">
+                                    <div
+                                        className={`rounded-2xl p-8 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${cat.bg} text-foreground`}
+                                    >
+                                        <div className="text-6xl mb-4">{cat.emoji}</div>
+                                        <h3 className="text-2xl font-bold mb-2">{cat.name}</h3>
+                                        <p className="text-sm">{cat.desc}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+
+
+                {/* FEATURED PRODUCTS */}
+                <section className="py-12">
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center justify-between mb-8">
+                            <h2 className="text-2xl font-bold text-foreground">Featured Products</h2>
+                            <div className="flex gap-2">
+                                <select className="px-4 py-2 border border-border rounded-lg bg-card text-foreground text-sm">
+                                    <option>Sort by: Lowest Price</option>
+                                    <option>Sort by: Closest Location</option>
+                                    <option>Sort by: Best Discount</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <ProductGrid />
+                    </div>
+                </section>
+            </main>
+
+            {/* FOOTER */}
+            <footer className="bg-card border-t mt-16">
+                <div className="container mx-auto px-4 py-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 className="font-bold text-foreground mb-3">ShopWise</h3>
+                            <p className="text-sm text-muted-foreground">Save money by comparing prices across Albanian markets</p>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold text-foreground mb-3">Quick Links</h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>
+                                    <Link href="/about" className="hover:text-primary transition-colors">
+                                        About Us
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/markets" className="hover:text-primary transition-colors">
+                                        Markets
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/contact" className="hover:text-primary transition-colors">
+                                        Contact
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold text-foreground mb-3">Support</h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>
+                                    <Link href="/help" className="hover:text-primary transition-colors">
+                                        Help Center
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/privacy" className="hover:text-primary transition-colors">
+                                        Privacy Policy
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/terms" className="hover:text-primary transition-colors">
+                                        Terms of Service
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
+                        © 2025 ShopWise. All rights reserved.
+                    </div>
+                </div>
+            </footer>
         </div>
-      </header>
-
-      <main>
-        <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
-                Find the Best Prices Instantly
-              </h2>
-              <p className="text-lg text-muted-foreground text-balance">
-                Compare prices from local Albanian markets and save money on every purchase
-              </p>
-              <SearchBar />
-
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span>Showing results near Tirana, Albania</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-foreground">Featured Products</h2>
-              <div className="flex gap-2">
-                <select className="px-4 py-2 border border-border rounded-lg bg-card text-foreground text-sm">
-                  <option>Sort by: Lowest Price</option>
-                  <option>Sort by: Closest Location</option>
-                  <option>Sort by: Best Discount</option>
-                </select>
-              </div>
-            </div>
-
-            <ProductGrid />
-          </div>
-        </section>
-      </main>
-
-      <footer className="bg-card border-t mt-16">
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-bold text-foreground mb-3">ShopWise</h3>
-              <p className="text-sm text-muted-foreground">Save money by comparing prices across Albanian markets</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-3">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="/about" className="hover:text-primary transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/markets" className="hover:text-primary transition-colors">
-                    Markets
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-primary transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-3">Support</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="/help" className="hover:text-primary transition-colors">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="hover:text-primary transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="hover:text-primary transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-            © 2025 ShopWise. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
+    )
 }
