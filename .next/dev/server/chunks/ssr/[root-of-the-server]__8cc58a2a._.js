@@ -78,19 +78,19 @@ const metadata = {
     icons: {
         icon: [
             {
-                url: 'NULL',
+                url: '/favicon.ico',
                 media: '(prefers-color-scheme: light)'
             },
             {
-                url: 'NULL',
+                url: '/favicon.ico',
                 media: '(prefers-color-scheme: dark)'
             },
             {
-                url: 'NULL',
+                url: '/favicon.ico',
                 type: 'image/svg+xml'
             }
         ],
-        apple: 'NULL'
+        apple: '/apple-touch-icon.png'
     }
 };
 function RootLayout({ children }) {
