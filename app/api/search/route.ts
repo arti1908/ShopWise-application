@@ -16,12 +16,19 @@ type Product = {
 }
 
 const demoProducts: Product[] = [
+  // Electronics / Tech
   { id: 1, name: 'iPhone 14', price: 89900, imageUrl: '/iphone-14.png', description: 'Apple smartphone 128GB', retailer: 'Tech Store Tirana', distance: 2.5, originalPrice: 95000, category: 'Electronics', inStock: true, location: 'Tirana' },
   { id: 2, name: 'Samsung Galaxy S23', price: 79900, imageUrl: '/samsung-galaxy-s23.png', description: 'Samsung smartphone 256GB', retailer: 'Mobile World', distance: 3.8, originalPrice: 85000, category: 'Electronics', inStock: true, location: 'Tirana' },
   { id: 3, name: 'MacBook Air M2', price: 119900, imageUrl: '/macbook-air-m2.png', description: 'Apple laptop M2 chip', retailer: 'Computer Center', distance: 1.2, category: 'Computers', inStock: false, location: 'Tirana' },
   { id: 4, name: 'Sony WH-1000XM5', price: 35900, imageUrl: '/wireless-headphones.png', description: 'Noise-cancelling headphones', retailer: 'Audio Pro', distance: 4.5, originalPrice: 39900, category: 'Audio', inStock: true, location: 'Durres' },
   { id: 5, name: 'iPad Air', price: 59900, imageUrl: '/ipad-air.png', description: 'Apple tablet 64GB', retailer: 'iStore Albania', distance: 2.1, category: 'Tablets', inStock: true, location: 'Tirana' },
   { id: 6, name: 'Dell XPS 15', price: 149900, imageUrl: '/dell-laptop.png', description: 'Professional laptop i7', retailer: 'Tech Hub', distance: 5.3, originalPrice: 159900, category: 'Computers', inStock: true, location: 'Shkoder' },
+
+  // 🍸 Bars in Tirana
+  { id: 101, name: 'Radio Bar Tirana', price: 900, imageUrl: '/bars/radio-bar.jpg', description: 'Trendy cocktail bar in the heart of Tirana.', retailer: 'Radio Bar', distance: 0.8, category: 'Bars', inStock: true, location: 'Tirana' },
+  { id: 102, name: 'Nouvelle Vague', price: 1000, imageUrl: '/bars/nouvelle-vague.jpg', description: 'Stylish lounge bar with great music and drinks.', retailer: 'Nouvelle Vague', distance: 1.2, category: 'Bars', inStock: true, location: 'Tirana' },
+  { id: 103, name: 'Hemingway Bar', price: 850, imageUrl: '/bars/hemingway.jpg', description: 'Cozy bar inspired by classic cocktails and literature.', retailer: 'Hemingway Bar', distance: 1.6, category: 'Bars', inStock: true, location: 'Tirana' },
+  { id: 104, name: 'Komiteti Bar', price: 700, imageUrl: '/bars/komiteti.jpg', description: 'Traditional Albanian raki and local drinks.', retailer: 'Komiteti', distance: 0.5, category: 'Bars', inStock: true, location: 'Tirana' },
 ]
 
 function parseBool(v: string | null) {
@@ -43,7 +50,9 @@ export async function GET(req: Request) {
     let results = demoProducts.slice()
 
     if (q) {
-      results = results.filter(p => (p.name + ' ' + p.description + ' ' + (p.retailer || '')).toLowerCase().includes(q))
+      results = results.filter(p =>
+        (p.name + ' ' + p.description + ' ' + (p.retailer || '')).toLowerCase().includes(q)
+      )
     }
     if (category) {
       results = results.filter(p => (p.category || '').toLowerCase() === category.toLowerCase())
@@ -71,7 +80,7 @@ export async function GET(req: Request) {
     } else if (sort === 'distance') {
       results.sort((a, b) => (a.distance || 0) - (b.distance || 0))
     } else {
-      // relevance: keep order, or simple heuristic (price asc)
+      // relevance (default)
       results.sort((a, b) => a.price - b.price)
     }
 
