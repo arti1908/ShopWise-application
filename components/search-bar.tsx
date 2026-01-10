@@ -2,15 +2,27 @@
 
 import { useState } from "react"
 import { Search } from "lucide-react"
+import { useRouter } from "next/navigation"
 
-export function SearchBar() {
-  const [query, setQuery] = useState("")
+export function SearchBar({
+  initialQuery = "",
+  onSearch,
+}: {
+  initialQuery?: string
+  onSearch?: (q: string) => void
+}) {
+  const [query, setQuery] = useState(initialQuery)
+  const router = useRouter()
 
   const handleSearch = () => {
-    if (query.trim()) {
-      console.log("[v0] Searching for:", query)
-      // Search logic will be implemented
+    const trimmed = query.trim()
+    if (!trimmed) return
+    if (onSearch) {
+      onSearch(trimmed)
+      return
     }
+    // fallback: navigate to the search page
+    router.push(`/search?q=${encodeURIComponent(trimmed)}`)
   }
 
   return (
