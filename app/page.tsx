@@ -1,172 +1,201 @@
-import Link from "next/link"
-import Image from "next/image"
-import { SearchBar } from "@/components/search-bar"
-import { ProductGrid } from "@/components/product-grid"
-import { ShoppingCart, Heart, MapPin } from "lucide-react"
+'use client'
 
-export default function HomePage() {
-    const categories = [
-        {
-            name: "Groceries",
-            image: "/images/groceries.jpeg",
-            desc: "Supermarkets & food stores",
-            link: "/groceries",
-            bg: "from-green-200 to-green-400",
-        },
-        {
-            name: "Bars",
-            image: "/images/bars.jpeg",
-            desc: "Drink & hang out near you",
-            link: "/bars",
-            bg: "from-pink-200 to-pink-400",
-        },
-        {
-            name: "Restaurants",
-            image: "/images/restaurants.jpeg",
-            desc: "Dine at the best places",
-            link: "/restaurants",
-            bg: "from-yellow-200 to-yellow-400",
-        },
-    ]
+import { useEffect, useState } from 'react'
+import { ProductCard } from '@/components/product-card'
 
-    return (
-        <div className="min-h-screen bg-background">
-            {/* HEADER */}
-            <header className="border-b bg-card sticky top-0 z-50">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                                <span className="text-primary-foreground font-bold text-lg">S</span>
-                            </div>
-                            <h1 className="text-2xl font-bold text-foreground">ShopWise</h1>
-                        </Link>
-
-                        <nav className="flex items-center gap-6">
-                            <Link href="/" className="text-foreground hover:text-primary font-medium">
-                                Home
-                            </Link>
-
-                            <Link href="/wishlist" className="flex items-center gap-2 hover:text-primary">
-                                <Heart className="w-5 h-5" />
-                                <span className="hidden sm:inline">Wishlist</span>
-                            </Link>
-
-                            <Link href="/cart" className="flex items-center gap-2 hover:text-primary">
-                                <ShoppingCart className="w-5 h-5" />
-                                <span className="hidden sm:inline">Cart</span>
-                            </Link>
-
-                            <Link
-                                href="/login"
-                                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-medium"
-                            >
-                                Login
-                            </Link>
-                        </nav>
-                    </div>
-                </div>
-            </header>
-
-            {/* MAIN */}
-            <main>
-                {/* SEARCH */}
-                <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 py-16 md:py-24">
-                    <div className="container mx-auto px-4 text-center space-y-6 max-w-3xl">
-                        <h2 className="text-4xl md:text-5xl font-bold">
-                            Find the Best Prices Instantly
-                        </h2>
-
-                        <p className="text-lg text-muted-foreground">
-                            Compare prices from local Albanian markets and save money on every purchase
-                        </p>
-
-                        <SearchBar />
-
-                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                            <MapPin className="w-4 h-4" />
-                            <span>Showing results near Tirana, Albania</span>
-                        </div>
-                    </div>
-                </section>
-
-                {/* CATEGORIES */}
-                <section className="py-16">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-10">Shop by Category</h2>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                            {categories.map((cat) => (
-                                <Link key={cat.name} href={cat.link} className="relative group rounded-2xl overflow-hidden">
-                                    {/* FOTO */}
-                                    <img
-                                        src={cat.image}
-                                        alt={cat.name}
-                                        className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                    {/* OVERLAY ME GRADIENT */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex flex-col justify-end p-6">
-                                        <h3 className="text-2xl font-bold text-white">{cat.name}</h3>
-                                        <p className="text-sm text-white/90">{cat.desc}</p>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* PRODUCTS */}
-                <section className="py-12">
-                    <div className="container mx-auto px-4">
-                        <div className="flex justify-between items-center mb-8">
-                            <h2 className="text-2xl font-bold">Featured Products</h2>
-
-                            <select className="px-4 py-2 border rounded-lg bg-card text-sm">
-                                <option>Sort by: Lowest Price</option>
-                                <option>Sort by: Closest Location</option>
-                                <option>Sort by: Best Discount</option>
-                            </select>
-                        </div>
-
-                        <ProductGrid />
-                    </div>
-                </section>
-            </main>
-
-            {/* FOOTER */}
-            <footer className="bg-card border-t mt-16">
-                <div className="container mx-auto px-4 py-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <h3 className="font-bold mb-3">ShopWise</h3><p className="text-sm text-muted-foreground">
-                                Save money by comparing prices across Albanian markets
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 className="font-semibold mb-3">Quick Links</h4>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li><Link href="/about">About Us</Link></li>
-                                <li><Link href="/markets">Markets</Link></li>
-                                <li><Link href="/contact">Contact</Link></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className="font-semibold mb-3">Support</h4>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li><Link href="/help">Help Center</Link></li>
-                                <li><Link href="/privacy">Privacy Policy</Link></li>
-                                <li><Link href="/terms">Terms of Service</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-                        © 2025 ShopWise. All rights reserved.
-                    </div>
-                </div>
-            </footer>
-        </div>
-    )
+type CartItem = {
+  id: number
+  quantity: number
+  product: any
 }
+
+const STORAGE_KEY = 'shopwise_cart'
+
+function normalizeCartItems(raw: unknown): CartItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const product = (item as CartItem).product
+      if (!product || typeof product !== 'object') return null
+      const id = Number((item as CartItem).id)
+      const quantity = Number((item as CartItem).quantity)
+      if (!Number.isFinite(id) || !Number.isFinite(quantity)) return null
+      return { id, quantity: Math.max(1, quantity), product }
+    })
+    .filter((item): item is CartItem => Boolean(item))
+}
+
+export default function CartPage() {
+  const [items, setItems] = useState<CartItem[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (raw) {
+      try {
+        setItems(JSON.parse(raw))
+        setItems(normalizeCartItems(JSON.parse(raw)))
+      } catch {
+        setItems([])
+      }
+    }
+    setIsLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isLoaded) return
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+  }, [items])
+  }, [isLoaded, items])
+
+  function removeItem(id: number) {
+    setItems((prev) => prev.filter((i) => i.id !== id))
+  }
+
+  function updateQuantity(id: number, q: number) {
+    setItems((prev) => prev.map((it) => (it.id === id ? { ...it, quantity: q } : it)))
+  }
+
+  const total = items.reduce((sum, it) => sum + (it.product.price || 0) * it.quantity, 0)
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+
+      {items.length === 0 && <div className="text-muted-foreground">Your cart is empty.</div>}
+
+      <div className="space-y-4">
+        {items.map((it) => (
+          <div key={it.id} className="bg-card rounded-lg p-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-20">
+                <img src={it.product.imageUrl || '/placeholder.svg'} alt={it.product.name} className="w-full object-cover rounded" />
+              </div>
+              <div>
+app/wishlist/page.tsx
+app/wishlist/page.tsx
++57
+-8
+
+'use client'
+
+import { useEffect, useState } from 'react'
+
+const STORAGE_KEY = 'shopwise_wishlist'
+const CART_KEY = 'shopwise_cart'
+
+type WishlistItem = {
+  id: number
+  name: string
+  retailer?: string
+  imageUrl?: string
+  [key: string]: unknown
+}
+
+type CartItem = {
+  id: number
+  quantity: number
+  product: WishlistItem
+}
+
+function normalizeWishlistItems(raw: unknown): WishlistItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const id = Number((item as WishlistItem).id)
+      if (!Number.isFinite(id)) return null
+      return { ...(item as WishlistItem), id }
+    })
+    .filter((item): item is WishlistItem => Boolean(item))
+}
+
+function normalizeCartItems(raw: unknown): CartItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const product = (item as CartItem).product
+      if (!product || typeof product !== 'object') return null
+      const id = Number((item as CartItem).id)
+      const quantity = Number((item as CartItem).quantity)
+      if (!Number.isFinite(id) || !Number.isFinite(quantity)) return null
+      return { id, quantity: Math.max(1, quantity), product }
+    })
+    .filter((item): item is CartItem => Boolean(item))
+}
+
+export default function WishlistPage() {
+  const [items, setItems] = useState<any[]>([])
+  const [items, setItems] = useState<WishlistItem[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (raw) {
+      try {
+        setItems(JSON.parse(raw))
+        setItems(normalizeWishlistItems(JSON.parse(raw)))
+      } catch {
+        setItems([])
+      }
+    }
+    setIsLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isLoaded) return
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+  }, [items])
+  }, [isLoaded, items])
+
+  function removeItem(id: number) {
+    setItems((prev) => prev.filter((p) => p.id !== id))
+  }
+
+  function moveToCart(product: any) {
+  function moveToCart(product: WishlistItem) {
+    const raw = localStorage.getItem(CART_KEY)
+    let cart = []
+    let cart: CartItem[] = []
+    try {
+      cart = raw ? JSON.parse(raw) : []
+      cart = normalizeCartItems(raw ? JSON.parse(raw) : [])
+    } catch {
+      cart = []
+    }
+    const newItem = { id: Date.now(), quantity: 1, product }
+    cart.push(newItem)
+    const existing = cart.find((item) => item.product?.id === product.id)
+    if (existing) {
+      existing.quantity = Math.max(1, existing.quantity + 1)
+    } else {
+      const newItem = { id: Date.now(), quantity: 1, product }
+      cart.push(newItem)
+    }
+    localStorage.setItem(CART_KEY, JSON.stringify(cart))
+    // remove from wishlist
+    removeItem(product.id)
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-4">Your Wishlist</h1>
+
+      {items.length === 0 && <div className="text-muted-foreground">Your wishlist is empty.</div>}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {items.map((p) => (
+          <div key={p.id} className="bg-card rounded-lg p-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-20">
+                <img src={p.imageUrl || '/placeholder.svg'} alt={p.name} className="w-full object-cover rounded" />
+              </div>
+              <div>
+                <div className="font-semibold">{p.name}</div>
+                <div className="text-sm text-muted-foreground">{p.retailer}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
