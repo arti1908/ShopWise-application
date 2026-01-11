@@ -11,23 +11,43 @@ type CartItem = {
 
 const STORAGE_KEY = 'shopwise_cart'
 
+function normalizeCartItems(raw: unknown): CartItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const product = (item as CartItem).product
+      if (!product || typeof product !== 'object') return null
+      const id = Number((item as CartItem).id)
+      const quantity = Number((item as CartItem).quantity)
+      if (!Number.isFinite(id) || !Number.isFinite(quantity)) return null
+      return { id, quantity: Math.max(1, quantity), product }
+    })
+    .filter((item): item is CartItem => Boolean(item))
+}
+
 export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       try {
         setItems(JSON.parse(raw))
+        setItems(normalizeCartItems(JSON.parse(raw)))
       } catch {
         setItems([])
       }
     }
+    setIsLoaded(true)
   }, [])
 
   useEffect(() => {
+    if (!isLoaded) return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
   }, [items])
+  }, [isLoaded, items])
 
   function removeItem(id: number) {
     setItems((prev) => prev.filter((i) => i.id !== id))
@@ -53,26 +73,3 @@ export default function CartPage() {
                 <img src={it.product.imageUrl || '/placeholder.svg'} alt={it.product.name} className="w-full object-cover rounded" />
               </div>
               <div>
-                <div className="font-semibold">{it.product.name}</div>
-                <div className="text-sm text-muted-foreground">{it.product.retailer}</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <input type="number" value={it.quantity} min={1} onChange={(e) => updateQuantity(it.id, Math.max(1, Number(e.target.value || 1)))} className="w-20 px-2 py-1 border rounded" />
-              <div className="font-bold">{((it.product.price || 0) * it.quantity).toLocaleString()} ALL</div>
-              <button onClick={() => removeItem(it.id)} className="px-3 py-1 bg-destructive text-destructive-foreground rounded">Remove</button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {items.length > 0 && (
-        <div className="mt-6 p-4 border border-border bg-card rounded-lg flex items-center justify-between">
-          <div className="text-lg font-semibold">Total</div>
-          <div className="text-2xl font-bold">{total.toLocaleString()} ALL</div>
-        </div>
-      )}
-    </div>
-  )
-}
