@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 const STORAGE_KEY = 'shopwise_wishlist'
@@ -48,7 +49,6 @@ function normalizeCartItems(raw: unknown): CartItem[] {
 }
 
 export default function WishlistPage() {
-  const [items, setItems] = useState<any[]>([])
   const router = useRouter()
   const [items, setItems] = useState<WishlistItem[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
@@ -57,7 +57,6 @@ export default function WishlistPage() {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       try {
-        setItems(JSON.parse(raw))
         setItems(normalizeWishlistItems(JSON.parse(raw)))
       } catch {
         setItems([])
@@ -69,26 +68,20 @@ export default function WishlistPage() {
   useEffect(() => {
     if (!isLoaded) return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  }, [items])
   }, [isLoaded, items])
 
   function removeItem(id: number) {
     setItems((prev) => prev.filter((p) => p.id !== id))
   }
 
-  function moveToCart(product: any) {
   function moveToCart(product: WishlistItem) {
     const raw = localStorage.getItem(CART_KEY)
-    let cart = []
     let cart: CartItem[] = []
     try {
-      cart = raw ? JSON.parse(raw) : []
       cart = normalizeCartItems(raw ? JSON.parse(raw) : [])
     } catch {
       cart = []
     }
-    const newItem = { id: Date.now(), quantity: 1, product }
-    cart.push(newItem)
     const existing = cart.find((item) => item.product?.id === product.id)
     if (existing) {
       existing.quantity = Math.max(1, existing.quantity + 1)
@@ -103,14 +96,14 @@ export default function WishlistPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">Your Wishlist</h1>
       <div className="flex items-center gap-3 mb-4">
         <button
           type="button"
           onClick={() => router.back()}
-          className="inline-flex items-center rounded-md border border-border px-3 py-1 text-sm font-medium text-foreground transition hover:bg-muted"
+          aria-label="Go back"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-muted/60 text-foreground transition hover:bg-muted"
         >
-          Back
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         </button>
         <h1 className="text-2xl font-bold">Your Wishlist</h1>
       </div>
@@ -139,3 +132,4 @@ export default function WishlistPage() {
       </div>
     </div>
   )
+}
