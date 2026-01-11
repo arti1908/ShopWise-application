@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { ProductCard } from '@/components/product-card'
+import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 type CartItem = {
@@ -68,9 +69,10 @@ export default function CartPage() {
         <button
           type="button"
           onClick={() => router.back()}
-          className="inline-flex items-center rounded-md border border-border px-3 py-1 text-sm font-medium text-foreground transition hover:bg-muted"
+          aria-label="Go back"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground transition hover:bg-muted"
         >
-          Back
+          <ArrowLeft className="h-4 w-4" />
         </button>
         <h1 className="text-2xl font-bold">Your Cart</h1>
       </div>
