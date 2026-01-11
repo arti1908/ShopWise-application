@@ -1,42 +1,102 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 const STORAGE_KEY = 'shopwise_wishlist'
 const CART_KEY = 'shopwise_cart'
 
+type WishlistItem = {
+  id: number
+  name: string
+  retailer?: string
+  imageUrl?: string
+  [key: string]: unknown
+}
+
+type CartItem = {
+  id: number
+  quantity: number
+  product: WishlistItem
+}
+
+function normalizeWishlistItems(raw: unknown): WishlistItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const id = Number((item as WishlistItem).id)
+      if (!Number.isFinite(id)) return null
+      return { ...(item as WishlistItem), id }
+    })
+    .filter((item): item is WishlistItem => Boolean(item))
+}
+
+function normalizeCartItems(raw: unknown): CartItem[] {
+  if (!Array.isArray(raw)) return []
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null
+      const product = (item as CartItem).product
+      if (!product || typeof product !== 'object') return null
+      const id = Number((item as CartItem).id)
+      const quantity = Number((item as CartItem).quantity)
+      if (!Number.isFinite(id) || !Number.isFinite(quantity)) return null
+      return { id, quantity: Math.max(1, quantity), product }
+    })
+    .filter((item): item is CartItem => Boolean(item))
+}
+
 export default function WishlistPage() {
   const [items, setItems] = useState<any[]>([])
+  const router = useRouter()
+  const [items, setItems] = useState<WishlistItem[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       try {
         setItems(JSON.parse(raw))
+        setItems(normalizeWishlistItems(JSON.parse(raw)))
       } catch {
         setItems([])
       }
     }
+    setIsLoaded(true)
   }, [])
 
   useEffect(() => {
+    if (!isLoaded) return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
   }, [items])
+  }, [isLoaded, items])
 
   function removeItem(id: number) {
     setItems((prev) => prev.filter((p) => p.id !== id))
   }
 
   function moveToCart(product: any) {
+  function moveToCart(product: WishlistItem) {
     const raw = localStorage.getItem(CART_KEY)
     let cart = []
+    let cart: CartItem[] = []
     try {
       cart = raw ? JSON.parse(raw) : []
+      cart = normalizeCartItems(raw ? JSON.parse(raw) : [])
     } catch {
       cart = []
     }
     const newItem = { id: Date.now(), quantity: 1, product }
     cart.push(newItem)
+    const existing = cart.find((item) => item.product?.id === product.id)
+    if (existing) {
+      existing.quantity = Math.max(1, existing.quantity + 1)
+    } else {
+      const newItem = { id: Date.now(), quantity: 1, product }
+      cart.push(newItem)
+    }
     localStorage.setItem(CART_KEY, JSON.stringify(cart))
     // remove from wishlist
     removeItem(product.id)
@@ -45,6 +105,17 @@ export default function WishlistPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Your Wishlist</h1>
+      <div className="flex items-center gap-3 mb-4">
+        <button
+          type="button"
+          onClick={() => router.back()}
+          aria-label="Go back"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground transition hover:bg-muted"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </button>
+        <h1 className="text-2xl font-bold">Your Wishlist</h1>
+      </div>
 
       {items.length === 0 && <div className="text-muted-foreground">Your wishlist is empty.</div>}
 
@@ -70,4 +141,3 @@ export default function WishlistPage() {
       </div>
     </div>
   )
-}
