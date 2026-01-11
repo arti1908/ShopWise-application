@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { ProductCard } from '@/components/product-card'
+import { useRouter } from 'next/navigation'
 
 type CartItem = {
   id: number
@@ -27,6 +28,7 @@ function normalizeCartItems(raw: unknown): CartItem[] {
 }
 
 export default function CartPage() {
+  const router = useRouter()
   const [items, setItems] = useState<CartItem[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -62,6 +64,16 @@ export default function CartPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+      <div className="flex items-center gap-3 mb-4">
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="inline-flex items-center rounded-md border border-border px-3 py-1 text-sm font-medium text-foreground transition hover:bg-muted"
+        >
+          Back
+        </button>
+        <h1 className="text-2xl font-bold">Your Cart</h1>
+      </div>
 
       {items.length === 0 && <div className="text-muted-foreground">Your cart is empty.</div>}
 
@@ -73,3 +85,16 @@ export default function CartPage() {
                 <img src={it.product.imageUrl || '/placeholder.svg'} alt={it.product.name} className="w-full object-cover rounded" />
               </div>
               <div>
+                <div className="font-semibold">{it.product.name}</div>
+                <div className="text-sm text-muted-foreground">{it.product.retailer}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <input type="number" value={it.quantity} min={1} onChange={(e) => updateQuantity(it.id, Math.max(1, Number(e.target.value || 1)))} className="w-20 px-2 py-1 border rounded" />
+              <div className="font-bold">{((it.product.price || 0) * it.quantity).toLocaleString()} ALL</div>
+              <button onClick={() => removeItem(it.id)} className="px-3 py-1 bg-destructive text-destructive-foreground rounded">Remove</button>
+            </div>
+          </div>
+        ))}
+      </div>
